@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upcoming Events - CMR College of Engineering</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Additional styles for events page */
+        .slideshow-container {
+            position: relative;
+            max-width: 100%;
+            margin: auto;
+            border: 2px solid #4caf50; /* Green border */
+            border-radius: 10px;
+            overflow: hidden;
+            height:60vh;
+
+            
+        }
+        
+        .mySlides {
+            display: none;
+        }
+
+        img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .event-section {
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .event-images {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .event-image {
+            margin: 10px;
+            position: relative;
+        }
+
+        .event-image img {
+            width: 200px;
+            height: 150px;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .event-image:hover img {
+            transform: scale(1.1);
+        }
+
+        .event-description {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            right: 10px;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 5px;
+            border-radius: 5px;
+            display: none;
+        }
+
+        .event-image:hover .event-description {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">CMR College of Engineering</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="map.html">Campus Map</a></li>
+                <li><a href="#facilities">Facilities</a></li>
+                <li><a href="#events">Events</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="slideshow-container">
+            <div class="mySlides fade">
+                <img src="cmrcollege.jpeg" alt="CMR College Image 1">
+            </div>
+            <div class="mySlides fade">
+                <img src="library2.jpg" alt="CMR College Image 2">
+            </div>
+            <div class="mySlides fade">
+                <img src="ground.avif" alt="CMR College Image 3">
+            </div>
+        </section>
+
+        <section class="event-section">
+            <h2>Events</h2>
+            <div class="event-images">
+                <div class="event-image">
+                    <img src="hackathon.jpg" alt="Hackathon">
+                    <div class="event-description">Hackathon</div>
+                </div>
+                <div class="event-image">
+                    <img src="graduationday1.jpg" alt="Graduation Day">
+                    <div class="event-description">Graduation Day</div>
+                </div>
+                <div class="event-image">
+                    <img src="azurafest.jpeg" alt="Azura Fest">
+                    <div class="event-description">Azura Fest</div>
+                </div>
+                <div class="event-image">
+                    <img src="freshersday.jpg" alt="Freshers">
+                    <div class="event-description">Freshers</div>
+                </div>
+                <div class="event-image">
+                    <img src="alumni.jpeg" alt="Alumni Day">
+                    <div class="event-description">Alumni Day</div>
+                </div>
+                <div class="event-image">
+                    <img src="traditionalday1.jpg" alt="Traditional Day Fest">
+                    <div class="event-description">Traditional Day Fest</div>
+                </div>
+                <div class="event-image">
+                    <img src="seminar.jpeg" alt="Seminars">
+                    <div class="event-description">Seminars</div>
+                </div>
+                <div class="event-image">
+                    <img src="codathon.jpeg" alt="Codathon">
+                    <div class="event-description">Codathon</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="contact-info">
+            <p>Email: info@cmr.edu.in</p>
+            <p>Phone: +91 123 456 7890</p>
+        </div>
+        <div class="social-media">
+            <a href="#">Facebook</a>
+            <a href="#">Twitter</a>
+            <a href="#">Instagram</a>
+        </div>
+    </footer>
+
+    <script>
+        // Slideshow functionality
+        let slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            const slides = document.getElementsByClassName("mySlides");
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {slideIndex = 1}    
+            slides[slideIndex - 1].style.display = "block";  
+            setTimeout(showSlides, 3000); // Change image every 3 seconds
+        }
+    </script>
+</body>
+</html>

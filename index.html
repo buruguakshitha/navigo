@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CMR College of Engineering - Campus Navigation</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">CMR College of Engineering</div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="viewmap.html">Campus Map</a></li><!-- Updated link to map.html -->
+                <li><a href="facilities.html">Facilities</a></li>
+                <li><a href="routedescription.html"> route description</a></li><!-- Updated link -->
+                <li><a href="contact.html">Contact</a></li><!-- Updated link -->
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+
+            <h1>Welcome to CMR College of Engineering!</h1>
+            <p>Explore our campus with ease. Use our navigation system to find your way around.</p>
+            <button onclick="window.location.href='Directions.html'">Get Started</button>
+        </section>
+        
+        <section class="features">
+            <h2>Features </h2>
+            <div class="feature">
+                <h3>Interactive Campus Map</h3>
+                <p>Explore all buildings, labs, and facilities.</p>
+                <button onclick="window.location.href='viewmap.html'">View Map</button> <!-- updated Link  -->
+            </div>
+            </div>
+            <div class="feature">
+                <h3>Real-Time Directions</h3>
+                <p>Get turn-by-turn directions to any location on campus.</p>
+                <button onclick="window.location.href='directions.html'" >Get Directions</button>
+            </div>
+            <div class="feature">
+                <h3>Event Locator</h3>
+                <p>Find upcoming events and activities on campus.</p>
+                <button onclick="window.location.href='events.html'">View Events</button>
+
+            </div>
+        </section>
+
+        <section class="events">
+            <h2>Upcoming Events</h2>
+            <ul>
+                <li>Tech Fest 2024 - Date: October 25, 2024</li>
+                <li>Guest Lecture: Innovations in Engineering - Date: November 1, 2024</li>
+                <li>Annual Sports Day - Date: November 15, 2024</li>
+            </ul>
+            <button onclick="scrollToSection('events')">See All Events</button>
+        </section>
+    </main>
+
+    <footer>
+        <div class="contact-info">
+            <p>Email: info@cmr.edu.in</p>
+            <p>Phone: +91 123 456 7890</p>
+        </div>
+        <div class="social-media">
+            <a href="#">Facebook</a>
+            <a href="#">Twitter</a>
+            <a href="#">Instagram</a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

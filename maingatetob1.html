@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Campus Navigation Map</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css" />
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        #map {
+            height: 600px;
+            width: 100%;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Campus Route: Main Gate to block1</h2>
+    <div id="map"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize the map
+            var map = L.map('map').setView([17.60462037, 78.49023746], 15); // Center at Main Gate
+
+            // Add OpenStreetMap tiles
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '© OpenStreetMap contributors'
+            }).addTo(map);
+
+            // Define all coordinates
+            var mainGate = [17.60462037, 78.49023746];
+            var turn1 = [17.60416887, 78.48729165];
+            var turn2 = [17.60473234, 78.48716365];
+            var block1 = [17.60461603, 78.48651921];
+
+            // Create the polyline with updated path
+            var path = [mainGate, turn1, turn2, block1 ];
+            var polyline = L.polyline(path, {
+                color: 'blue',
+                weight: 5,
+                opacity: 0.7
+            }).addTo(map);
+
+            // Add markers with custom popups
+            L.marker(mainGate).addTo(map).bindPopup('<b>Main Gate</b><br>Starting Point');
+            L.marker(turn1).addTo(map).bindPopup('<b>First Turn</b>');
+            L.marker(turn2).addTo(map).bindPopup('<b>Second Turn</b>');
+            L.marker(block1).addTo(map).bindPopup('<b>Block 1 </b><br> is your destination');
+
+            // Initialize a variable for the user's location marker
+            var userMarker;
+
+            // Function to update the user's location
+            function updateUserLocation(position) {
+                var userLatLng = [position.coords.latitude, position.coords.longitude];
+
+                // If the userMarker doesn't exist, create it
+                if (!userMarker) {
+                    userMarker = L.marker(userLatLng, { icon: L.icon({ iconUrl: 'https://iconarchive.com/download/i103158/Material-Design/Location-Icon.svg', iconSize: [25, 41], iconAnchor: [12, 41] }) }).addTo(map)
+                        .bindPopup('You are here!')
+                        .openPopup();
+                } else {
+                    // Update the existing user's location
+                    userMarker.setLatLng(userLatLng);
+                }
+
+                // Center the map on the user's location
+                map.setView(userLatLng, 15);
+            }
+
+            // Start tracking the user's location
+            if (navigator.geolocation) {
+                navigator.geolocation.watchPosition(updateUserLocation, function(err) {
+                    console.error("Error getting location: " + err.message);
+                });
+            } else {
+                alert("Geolocation is not supported by this browser.");
+            }
+
+            // Fit the map to show all markers and the polyline
+            map.fitBounds(polyline.getBounds(), {
+                padding: [50, 50]
+            });
+        });
+    </script>
+</body>
+</html>

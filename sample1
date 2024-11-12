@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indoor Navigation - CMR College</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        #map {
+            height: 600px; /* Adjust as necessary */
+            width: 100%;
+        }
+        .controls {
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Indoor Navigation - CMR College of Engineering</h1>
+    </header>
+    
+    <div class="controls">
+        <label for="start">Start: </label>
+        <input type="text" id="start" placeholder="e.g., Block 1 303">
+        <label for="end">End: </label>
+        <input type="text" id="end" placeholder="e.g., Block 2 101">
+        <button onclick="getDirections()">Get Directions</button>
+    </div>
+
+    <div id="map"></div>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        // Initialize the map
+        const map = L.map('map').setView([latitude, longitude], zoomLevel); // Set your latitude, longitude, and zoom level
+
+        // Load your map image
+        const imageUrl = 'path/to/your/campus-map.jpg'; // Update with your map image path
+        const imageBounds = [[southWestLat, southWestLng], [northEastLat, northEastLng]]; // Set the bounds of your image
+
+        L.imageOverlay(imageUrl, imageBounds).addTo(map);
+        map.fitBounds(imageBounds);
+
+        // Sample data for rooms and paths
+        const campusData = {
+            "Block 1": {
+                "303": { "coordinates": [latitude1, longitude1] },
+            },
+            "Block 2": {
+                "101": { "coordinates": [latitude2, longitude2] },
+            },
+            "paths": [
+                {
+                    "start": "Block 1 303",
+                    "end": "Block 2 101",
+                    "route": [
+                        [latitude1, longitude1],
+                        [latitude2, longitude2]
+                    ]
+                }
+            ]
+        };
+
+        function getDirections() {
+            const start = document.getElementById('start').value;
+            const end = document.getElementById('end').value;
+            const path = campusData.paths.find(p => p.start === start && p.end === end);
+
+            if (path) {
+                showRoute(path.route);
+            } else {
+                alert('No route found!');
+            }
+        }
+
+        function showRoute(route) {
+            const polyline = L.polyline(route, { color: 'blue' }).addTo(map);
+            map.fitBounds(polyline.getBounds());
+        }
+    </script>
+</body>
+</html>

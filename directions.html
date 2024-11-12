@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Directions - CMR College of Engineering</title>
+    <link rel="stylesheet" href="direction.css">
+</head>
+<body>
+    <header>
+        <div class="logo">CMR College of Engineering</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="map.html">Campus Map</a></li>
+                <li><a href="#facilities">Facilities</a></li>
+                <li><a href="event.html">Events</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Get Directions</h1>
+        <form id="directionForm">
+            <label for="startLocation">Select Location:</label>
+            <select id="startLocation" required>
+                <option value="" disabled selected>Select your starting point</option>
+                <option value="Main gate">Main gate</option>
+                <option value="Library">Library</option>
+                <option value="canteen">canteen</option>
+                <option value="block1">block1</option>
+                <option value="block2">block2</option>
+                <option value="civilEngineering">civilEngineering</option>
+                <option value="admissionblock">admissionblock</option>
+                <!-- Add more locations as needed -->
+            </select>
+            <br> 
+            <label for="destination">Select Destination:</label>
+            <select id="destination" required>
+                <option value="" disabled selected>Select your destination</option>
+                <option value="Block 2">Block 2</option>
+                <option value="Library">Library</option>
+                <option value="civilEngineering">civilEngineering</option>
+                <option value="admissionblock"> admissionblock</option>
+                <option value="girlshostel"> girlshostel2</option>
+                <option value="canteen"> canteen</option>
+                <option value="block1">block1</option>
+                
+                <!-- Add more destinations as needed -->
+            </select>
+            <br>
+            <button type="submit">Show Directions</button>
+        </form>
+
+        <div id="mapContainer" style="display:none;">
+            <h2>Directions from <span id="fromLocation"></span> to <span id="toLocation"></span></h2>
+            <div id="map"></div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+    <script>
+        document.getElementById('directionForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const startLocation = document.getElementById('startLocation').value;
+            const destination = document.getElementById('destination').value;
+            
+            document.getElementById('fromLocation').textContent = startLocation;
+            document.getElementById('toLocation').textContent = destination;
+
+            
+            // Uncomment and replace with actual map integration if needed
+            // Here you could integrate a mapping library (like Google Maps) to show the actual route.
+
+            // Optional: Redirect based on selected locations
+            // Uncomment if you want to redirect to specific pages based on the selection
+             if (startLocation === 'Main gate' && destination === 'Block 2') {
+                window.location.href = 'maps.html';
+             } else if (startLocation === 'Main gate' && destination === 'civilEngineering') {
+               window.location.href = 'civil.html';
+             }
+             else if (startLocation==='Main gate' && destination=='Library'){
+                window.location.href='map1.html';
+             }
+             else if(startLocation=='Main gate' && destination=='admissionblock'){
+                window.location.href='admissionblock.html';
+             }
+                else if(startLocation=='Main gate' && destination=='girlshostel'){
+                    window.location.href='girlshostel.html'; 
+                }
+                    else if(startLocation=='block1' && destination=='Library'){
+                        window.location.href='block1tolib.html';
+                    }
+                        else if(startLocation=='block1' && destination=='Block 2'){
+                            window.location.href='b1tob2.html'; 
+                        }
+                            else if(startLocation=='block1' && destination=='civilEngineering'){
+                                window.location.href='b1tocivil.html'; 
+                            }
+                                else if(startLocation=='Main gate' && destination=='block1'){
+                                    window.location.href='maingatetob1.html'; 
+                                }
+                                    else if(startLocation=='Main gate' && destination=='canteen'){
+                                        window.location.href='maingatetocanteen.html';
+                                        
+                                    }
+                                    else if(startLocation=='admissionblock' && destination=='Library'){
+                                        window.location.href='admitolib.html';
+                                
+             }
+        });
+    </script>
+</body>
+</html>

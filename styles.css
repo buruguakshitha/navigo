@@ -1,0 +1,185 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #e8f5e9; /* Light greenish background */
+    color: #333;
+    line-height: 1.6;
+
+}
+
+header {
+    background: #006600; /* Darker green */
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 20px;
+}
+
+nav a {
+    color: white; 
+    
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #dcedc1; /* Lighter green */
+}
+
+.hero {
+    padding: 60px 20px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.9); /* White with transparency */
+    border-radius: 10px;
+    margin: 10px auto;
+    max-width: 1500px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.hero h1 {
+    margin: 0;
+    font-size: 36px;
+    color: #4caf50; /* Darker green */
+}
+
+.hero p {
+    font-size: 18px;
+    margin: 20px 0;
+}
+
+.hero button {
+    background: #66bb6a; /* Medium green */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s;
+}
+
+.hero button:hover {
+    background: #388e3c; /* Darker green on hover */
+}
+.hero {
+    padding: 60px 20px;
+    text-align: center;
+    background: rgba(212, 124, 124, 0.9), url('cmr.college.jpeg'); /* Add your image here */
+    background-size: cover; /* Adjusts the image to cover the section */
+    background-position: center; /* Centers the image */
+    border-radius: 10px;
+    margin: 20px auto;
+    max-width: 800px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+
+.features {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 40px 20px;
+}
+
+.feature {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    width: 22%;
+    box-shadow: 0 4px 10px rgba(26, 212, 60, 0.1);
+    transition: transform 0.3s;
+}
+
+.feature:hover {
+    transform: translateY(-5px);
+}
+
+.feature h3 {
+    color: #4caf50; /* Darker green */
+}
+
+.events {
+    background: rgba(255, 255, 255, 0.9); /* White with transparency */
+    padding: 40px 20px;
+    text-align: center;
+    border-radius: 10px;
+    margin: 20px auto;
+    max-width: 800px;
+    box-shadow: 0 4px 10px rgba(48, 226, 16, 0.2);
+}
+
+footer {
+    background: #006600; /* Darker green */
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 20px;
+}
+
+.social-media a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #dcedc1; /* Lighter green */
+    transition: color 0.3s;
+}
+
+.social-media a:hover {
+    color: #ccc; /* White on hover */
+}
+/* Responsive Design */
+@media (max-width: 768px) {
+    .features {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    .hero h1 {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 24px;
+    }
+    
+    .hero p {
+        font-size: 16px;
+    }
+    
+    .hero button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+    
+    .feature {
+        width: 90%;
+    }
+}
